@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F5FA"
+    tools:context=".DisplayDataActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar_displayact"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/blue_primary"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="4dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_baseline_notifications_none_24"
+            android:layout_gravity="end"
+            android:layout_marginEnd="15dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="siMas"
+            android:fontFamily="@font/sipasarsemibold"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:id="@+id/toolbar_title_displayact" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_displayact"
+        android:layout_marginTop="100dp"/>
+
+    <TextView
+        android:id="@+id/NamaMahasiswa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nouval Rizky Akbar Juliansyah"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:fontFamily="@font/bold"
+        android:textColor="@color/dark_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NamaMahasiswa">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_nomerinduk"/>
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:id="@+id/NimMahasiswa"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="1905551065"
+            android:fontFamily="@font/semibold"
+            android:textColor="@color/grey"
+            android:textSize="16sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="354dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="320dp"
+        android:background="@drawable/radius_box"
+        android:elevation="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_displayact">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/icon_frame"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/line1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_address" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/regular"
+            android:text="Alamat Rumah"
+            android:textColor="@color/grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/AlamatMahasiswa"
+            android:layout_width="257dp"
+            android:layout_height="40dp"
+            android:fontFamily="@font/semibold"
+            android:text="Jalan Diponegoro Gang 8C Kavling 4 No. 13 Denpasar"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="1.2dp"
+            android:layout_marginTop="75dp"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/frame_icon2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/icon_frame"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/line2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/line1"
+            app:layout_constraintVertical_bias="0.7">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_gender" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/judulGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/regular"
+            android:text="Jenis Kelamin"
+            android:textColor="@color/grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/frame_icon2"
+            app:layout_constraintTop_toTopOf="@id/line1" />
+
+        <TextView
+            android:id="@+id/JenisKelaminMahasiswa"
+            android:layout_width="257dp"
+            android:layout_height="32dp"
+            android:fontFamily="@font/semibold"
+            android:text="Laki-Laki"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/judulGender"
+            app:layout_constraintTop_toBottomOf="@+id/judulGender" />
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="1.2dp"
+            android:layout_marginTop="75dp"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toTopOf="@+id/line1" />
+
+        <LinearLayout
+            android:id="@+id/frame_icon3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/icon_frame"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/line3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/line2"
+            app:layout_constraintVertical_bias="0.7">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_bills" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/judulUkt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/regular"
+            android:text="Tingkat UKT"
+            android:textColor="@color/grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/frame_icon2"
+            app:layout_constraintTop_toTopOf="@id/line2" />
+
+        <TextView
+            android:id="@+id/UKTMahasiswa"
+            android:layout_width="257dp"
+            android:layout_height="32dp"
+            android:fontFamily="@font/semibold"
+            android:text="4"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/judulUkt"
+            app:layout_constraintTop_toBottomOf="@+id/judulUkt" />
+
+        <View
+            android:id="@+id/line3"
+            android:layout_width="match_parent"
+            android:layout_height="1.2dp"
+            android:layout_marginTop="75dp"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toTopOf="@+id/line2" />
+
+        <LinearLayout
+            android:id="@+id/frame_icon4"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="18dp"
+            android:background="@drawable/icon_frame"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/line3"
+            app:layout_constraintVertical_bias="0.5">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_programming" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/judulProgramming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/regular"
+            android:text="Bahasa Pemrograman"
+            android:textColor="@color/grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/frame_icon3"
+            app:layout_constraintTop_toTopOf="@id/line3" />
+
+        <TextView
+            android:id="@+id/BahasaMahasiswa"
+            android:layout_width="257dp"
+            android:layout_height="32dp"
+            android:fontFamily="@font/semibold"
+            android:text="Java, PHP"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/judulProgramming"
+            app:layout_constraintTop_toBottomOf="@+id/judulProgramming" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
