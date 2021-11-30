@@ -183,6 +183,10 @@ public class FormActivity extends AppCompatActivity {
 		intentToDisplay.putExtra("kelaminMhs", kelaminMhs);
 		intentToDisplay.putExtra("uktMhs", uktMhs);
 		intentToDisplay.putExtra("bahasaMhs", bahasaMhs);
+
+		MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(this);
+		myDatabaseHelper.tambahMahasiswa(namaMhs, nimMhs, alamatMhs, kelaminMhs, uktMhs, bahasaMhs);
+
 		startActivity(intentToDisplay);
 	}
 
