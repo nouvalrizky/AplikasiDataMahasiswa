@@ -1,6 +1,7 @@
 package com.example.aplikasidatamahasiswa;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,9 +43,11 @@ public class HomeFragment extends Fragment {
 
 		storeDataInArrays();
 
+		recyclerAdapter = new RecyclerAdapter(getContext(), id_mhs, nama_mhs, nim_mhs, alamat_mhs, gender_mhs, ukt_mhs, bahasa_mhs);
+
 		recyclerView = view.findViewById(R.id.recycler_mhs);
 		recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-		recyclerView.setAdapter(new RecyclerAdapter(getContext(), id_mhs, nama_mhs, nim_mhs, alamat_mhs, gender_mhs, ukt_mhs, bahasa_mhs));
+		recyclerView.setAdapter(recyclerAdapter);
 
 		return view;
 	}
@@ -65,6 +68,12 @@ public class HomeFragment extends Fragment {
 				bahasa_mhs.add(cursor.getString(6));
 			}
 		}
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		recyclerAdapter.notifyDataSetChanged();
 	}
 }
 

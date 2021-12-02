@@ -39,7 +39,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_mhs"
         android:layout_width="match_parent"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="130dp"
+        android:paddingHorizontal="14dp"
         android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

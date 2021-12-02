@@ -72,4 +72,22 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 		}
 		return cursor;
 	}
+
+	void updateData(String row_id, String namaMhs, String nimMhs, String alamatMhs, String genderMhs, String uktMhs, String bahasaMhs){
+		 SQLiteDatabase db = this.getWritableDatabase();
+		 ContentValues cv = new ContentValues();
+		 cv.put(COLUMN_NAMA, namaMhs);
+		 cv.put(COLUMN_NIM, nimMhs);
+		 cv.put(COLUMN_ALAMAT, alamatMhs);
+		 cv.put(COLUMN_GENDER, genderMhs);
+		 cv.put(COLUMN_UKT, uktMhs);
+		 cv.put(COLUMN_BAHASA, bahasaMhs);
+
+		 long result = db.update(TABLE_NAME, cv, "_id?", new String[]{row_id});
+		 if (result == -1){
+		 		Toast.makeText(context, "Gagal memperbarui data!", Toast.LENGTH_SHORT).show();
+		 }else {
+			 Toast.makeText(context, "Berhasil memperbarui data!", Toast.LENGTH_SHORT).show();
+		 }
+	}
 }

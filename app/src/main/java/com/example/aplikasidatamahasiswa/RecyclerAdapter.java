@@ -1,12 +1,15 @@
 package com.example.aplikasidatamahasiswa;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -15,6 +18,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
 	Context context;
 	ArrayList id_mhs, nama_mhs, nim_mhs, alamat_mhs, gender_mhs, ukt_mhs, bahasa_mhs;
+
 
 	RecyclerAdapter(Context context,
 									ArrayList id_mhs,
@@ -43,10 +47,23 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 	}
 
 	@Override
-	public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+	public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 		holder.nama_mhs_txt.setText(String.valueOf(nama_mhs.get(position)));
 		holder.nim_mhs_txt.setText(String.valueOf(nim_mhs.get(position)));
 		holder.gender_mhs_txt.setText(String.valueOf(gender_mhs.get(position)));
+		holder.cardViewMhs.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent intentToDisplay = new Intent(view.getContext(), DisplayDataActivity.class);
+				intentToDisplay.putExtra("namaMhs", String.valueOf(nama_mhs.get(position)));
+				intentToDisplay.putExtra("nimMhs", String.valueOf(nim_mhs.get(position)));
+				intentToDisplay.putExtra("alamatMhs", String.valueOf(alamat_mhs.get(position)));
+				intentToDisplay.putExtra("kelaminMhs", String.valueOf(gender_mhs.get(position)));
+				intentToDisplay.putExtra("uktMhs", String.valueOf(ukt_mhs.get(position)));
+				intentToDisplay.putExtra("bahasaMhs", String.valueOf(bahasa_mhs.get(position)));
+				view.getContext().startActivity(intentToDisplay);
+			}
+		});
 	}
 
 	@Override
@@ -56,11 +73,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
 	public class MyViewHolder extends RecyclerView.ViewHolder {
 		TextView id_mhs_txt, nama_mhs_txt, nim_mhs_txt, gender_mhs_txt;
+		CardView cardViewMhs;
 		public MyViewHolder(@NonNull View itemView) {
 			super(itemView);
 			nama_mhs_txt = itemView.findViewById(R.id.namaMahasiswaCard);
 			nim_mhs_txt = itemView.findViewById(R.id.nimMahasiswaCard);
 			gender_mhs_txt = itemView.findViewById(R.id.genderMahasiswaCard);
+			cardViewMhs = itemView.findViewById(R.id.cardMhs);
 		}
 	}
+
 }

@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_displayact"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="50dp"/>
 
     <TextView
         android:id="@+id/NamaMahasiswa"
@@ -87,9 +87,10 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardInfo"
         android:layout_width="354dp"
         android:layout_height="300dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="280dp"
         android:background="@drawable/radius_box"
         android:elevation="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -303,5 +304,24 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/tombolUpdateMhs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Update"
+        app:layout_constraintEnd_toEndOf="@+id/cardInfo"
+        app:layout_constraintTop_toBottomOf="@id/cardInfo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="Delete"
+        android:backgroundTint="@color/dark_grey"
+        app:layout_constraintEnd_toStartOf="@+id/tombolUpdateMhs"
+        app:layout_constraintTop_toTopOf="@+id/tombolUpdateMhs" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

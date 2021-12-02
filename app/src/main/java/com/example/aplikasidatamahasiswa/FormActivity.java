@@ -188,6 +188,7 @@ public class FormActivity extends AppCompatActivity {
 		myDatabaseHelper.tambahMahasiswa(namaMhs, nimMhs, alamatMhs, kelaminMhs, uktMhs, bahasaMhs);
 
 		startActivity(intentToDisplay);
+		finish();
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package com.example.aplikasidatamahasiswa;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -34,12 +35,22 @@ public class HomeActivity extends AppCompatActivity {
 			public void onClick(View view) {
 				Intent intentToForm = new Intent(HomeActivity.this, FormActivity.class);
 				startActivity(intentToForm);
+				finish();
 			}
 		});
 
 	}
 
-	private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == 1) {
+			recreate();
+		}
+	}
+
+
+		private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 		@Override
 		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 			Fragment selectedFragment = null;
@@ -57,4 +68,5 @@ public class HomeActivity extends AppCompatActivity {
 			return true;
 		}
 	};
+
 }

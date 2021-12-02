@@ -67,4 +67,9 @@ public class DisplayDataActivity extends AppCompatActivity {
 		super.onStop();
 	}
 
+	@Override
+	public void onBackPressed() {
+		Intent intentToForm = new Intent(DisplayDataActivity.this, HomeActivity.class);
+		startActivity(intentToForm);
+	}
 }
