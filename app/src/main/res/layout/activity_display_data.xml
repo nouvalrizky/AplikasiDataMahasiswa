@@ -315,6 +315,7 @@
         app:layout_constraintTop_toBottomOf="@id/cardInfo" />
 
     <Button
+        android:id="@+id/tombolDeleteMhs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"

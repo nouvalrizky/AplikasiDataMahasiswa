@@ -83,7 +83,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 		 cv.put(COLUMN_UKT, uktMhs);
 		 cv.put(COLUMN_BAHASA, bahasaMhs);
 
-		 long result = db.update(TABLE_NAME, cv, "_id?", new String[]{row_id});
+		 long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
 		 if (result == -1){
 		 		Toast.makeText(context, "Gagal memperbarui data!", Toast.LENGTH_SHORT).show();
 		 }else {

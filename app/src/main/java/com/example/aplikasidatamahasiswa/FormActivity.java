@@ -22,7 +22,6 @@ import android.widget.Toast;
 
 public class FormActivity extends AppCompatActivity {
 
-	private DrawerLayout drawerLayout;
 	EditText inputNama, inputAlamat, inputNIM;
 	RadioGroup inputKelamin;
 	RadioButton kelaminTerpilih, inputLaki;
@@ -32,23 +31,22 @@ public class FormActivity extends AppCompatActivity {
 	String namaMhs, alamatMhs, nimMhs, kelaminMhs, uktMhs, bahasaMhs;
 
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		Toolbar toolbar = findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
-
-		//      Hapus title bawaan toolbar
-		getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-		drawerLayout = findViewById(R.id.drawer_layout);
-
-		ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-		drawerLayout.addDrawerListener(actionBarDrawerToggle);
-		actionBarDrawerToggle.syncState();
+//		Toolbar toolbar = findViewById(R.id.toolbar);
+//		setSupportActionBar(toolbar);
+//
+//		//      Hapus title bawaan toolbar
+//		getSupportActionBar().setDisplayShowTitleEnabled(false);
+//
+//		drawerLayout = findViewById(R.id.drawer_layout);
+//
+//		ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//		drawerLayout.addDrawerListener(actionBarDrawerToggle);
+//		actionBarDrawerToggle.syncState();
 
 		inputNama = findViewById(R.id.inputNama);
 		inputAlamat = findViewById(R.id.inputAlamat);
@@ -85,19 +83,19 @@ public class FormActivity extends AppCompatActivity {
 
 		bahasaMhs = "";
 		if (inputBahasaC.isChecked()){
-			bahasaMhs = bahasaMhs + inputBahasaC.getText().toString() + ",";
+			bahasaMhs = bahasaMhs + inputBahasaC.getText().toString() + ", ";
 		}
 		if (inputBahasaJava.isChecked()) {
-			bahasaMhs =  bahasaMhs + " " + inputBahasaJava.getText().toString() + ",";
+			bahasaMhs =  bahasaMhs + inputBahasaJava.getText().toString() + ", ";
 		}
 		if (inputBahasaJavascript.isChecked()) {
-			bahasaMhs = bahasaMhs + " " + inputBahasaJavascript.getText().toString() + ",";
+			bahasaMhs = bahasaMhs + inputBahasaJavascript.getText().toString() + ", ";
 		}
 		if (inputBahasaPHP.isChecked()){
-			bahasaMhs = bahasaMhs + " " + inputBahasaPHP.getText().toString() + ",";
+			bahasaMhs = bahasaMhs + inputBahasaPHP.getText().toString() + ", ";
 		}
 		if(!bahasaMhs.isEmpty()){
-			bahasaMhs = bahasaMhs.substring(0, bahasaMhs.length() - 1);
+			bahasaMhs = bahasaMhs.substring(0, bahasaMhs.length() - 2);
 		}
 
 		if(namaMhs.isEmpty()){
@@ -193,10 +191,8 @@ public class FormActivity extends AppCompatActivity {
 
 	@Override
 	public void onBackPressed() {
-		if (drawerLayout.isDrawerOpen(GravityCompat.START)){
-			drawerLayout.closeDrawer(GravityCompat.START);
-		}else{
 			super.onBackPressed();
-		}
+			Intent intentToHome = new Intent(FormActivity.this, HomeActivity.class);
+			startActivity(intentToHome);
 	}
 }

@@ -61,6 +61,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 				intentToDisplay.putExtra("kelaminMhs", String.valueOf(gender_mhs.get(position)));
 				intentToDisplay.putExtra("uktMhs", String.valueOf(ukt_mhs.get(position)));
 				intentToDisplay.putExtra("bahasaMhs", String.valueOf(bahasa_mhs.get(position)));
+				intentToDisplay.putExtra("idMhs", String.valueOf(id_mhs.get(position)));
 				view.getContext().startActivity(intentToDisplay);
 			}
 		});

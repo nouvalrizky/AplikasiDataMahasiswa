@@ -16,7 +16,7 @@
         android:id="@+id/toolbar_frame"
         android:background="#F1F5FA"
         android:orientation="vertical">
-        
+
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -29,16 +29,17 @@
             <ImageView
                 android:layout_width="26dp"
                 android:layout_height="26dp"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/ic_back"
                 android:layout_gravity="start"
                 android:layout_marginEnd="15dp"
                 app:tint="@color/white" />
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_baseline_notifications_none_24"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_home"
                 android:layout_gravity="end"
+                app:tint="@color/white"
                 android:layout_marginEnd="15dp"/>
 
 
@@ -65,7 +66,7 @@
             android:layout_marginHorizontal="12dp"
             android:layout_marginTop="12dp"
             android:textColor="@color/black"
-            android:text="Form Data Mahasiswa" />
+            android:text="Edit Data Mahasiswa" />
 
         <TextView
             android:id="@+id/subJudul"
@@ -76,7 +77,7 @@
             android:textColor="@color/grey"
             app:layout_constraintTop_toBottomOf="@id/judulApp"
             app:layout_constraintLeft_toLeftOf="@id/judulApp"
-            android:text="Masukkan identitas anda"
+            android:text="Masukkan perubahan data"
             android:layout_marginBottom="24dp" />
 
         <ScrollView
@@ -107,7 +108,7 @@
                 </TextView>
 
                 <EditText
-                    android:id="@+id/inputNama"
+                    android:id="@+id/editNama"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="4dp"
@@ -125,13 +126,13 @@
                     android:fontFamily="@font/regular"
                     android:textSize="14dp"
                     android:textColor="@color/grey"
-                    app:layout_constraintTop_toBottomOf="@id/inputNama"
+                    app:layout_constraintTop_toBottomOf="@id/editNama"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_marginTop="18dp">
                 </TextView>
 
                 <EditText
-                    android:id="@+id/inputNIM"
+                    android:id="@+id/editNIM"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="4dp"
@@ -149,13 +150,13 @@
                     android:fontFamily="@font/regular"
                     android:textSize="14dp"
                     android:textColor="@color/grey"
-                    app:layout_constraintTop_toBottomOf="@id/inputNIM"
+                    app:layout_constraintTop_toBottomOf="@id/editNIM"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_marginTop="18dp">
                 </TextView>
 
                 <EditText
-                    android:id="@+id/inputAlamat"
+                    android:id="@+id/editAlamat"
                     android:layout_width="match_parent"
                     android:layout_height="90dp"
                     android:layout_marginTop="4dp"
@@ -173,21 +174,21 @@
                     android:fontFamily="@font/regular"
                     android:textSize="14dp"
                     android:textColor="@color/grey"
-                    app:layout_constraintTop_toBottomOf="@id/inputAlamat"
+                    app:layout_constraintTop_toBottomOf="@id/editAlamat"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_marginTop="18dp">
                 </TextView>
 
                 <RadioGroup
-                    android:id="@+id/grupKelamin"
+                    android:id="@+id/grupEditKelamin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/textKelamin"
                     android:orientation="horizontal"
-                    android:checkedButton="@id/inputLaki"
+                    android:checkedButton="@id/editLaki"
                     app:layout_constraintLeft_toLeftOf="parent">
                     <RadioButton
-                        android:id="@+id/inputLaki"
+                        android:id="@+id/editLaki"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Laki-laki"
@@ -196,6 +197,7 @@
                         android:buttonTint="@color/blue_primary">
                     </RadioButton>
                     <RadioButton
+                        android:id="@+id/editPerempuan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
@@ -213,13 +215,13 @@
                     android:fontFamily="@font/regular"
                     android:textSize="14dp"
                     android:textColor="@color/grey"
-                    app:layout_constraintTop_toBottomOf="@id/grupKelamin"
+                    app:layout_constraintTop_toBottomOf="@id/grupEditKelamin"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_marginTop="18dp">
                 </TextView>
 
                 <SeekBar
-                    android:id="@+id/inputUKT"
+                    android:id="@+id/editUKT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/textUKT"
@@ -232,7 +234,7 @@
                     android:id="@+id/hintUKT1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/inputUKT"
+                    app:layout_constraintTop_toBottomOf="@+id/editUKT"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_marginLeft="12dp"
                     android:textColor="@color/grey"
@@ -244,7 +246,7 @@
                     android:id="@+id/hintUKT2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/inputUKT"
+                    app:layout_constraintTop_toBottomOf="@+id/editUKT"
                     app:layout_constraintLeft_toRightOf="@+id/hintUKT1"
                     android:layout_marginLeft="70dp"
                     android:textColor="@color/grey"
@@ -255,7 +257,7 @@
                     android:id="@+id/hintUKT3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/inputUKT"
+                    app:layout_constraintTop_toBottomOf="@+id/editUKT"
                     app:layout_constraintLeft_toRightOf="@+id/hintUKT2"
                     android:layout_marginLeft="70dp"
                     android:textColor="@color/grey"
@@ -266,7 +268,7 @@
                     android:id="@+id/hintUKT4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/inputUKT"
+                    app:layout_constraintTop_toBottomOf="@+id/editUKT"
                     app:layout_constraintLeft_toRightOf="@+id/hintUKT3"
                     android:layout_marginLeft="70dp"
                     android:textColor="@color/grey"
@@ -277,7 +279,7 @@
                     android:id="@+id/hintUKT5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/inputUKT"
+                    app:layout_constraintTop_toBottomOf="@+id/editUKT"
                     app:layout_constraintLeft_toRightOf="@+id/hintUKT4"
                     android:layout_marginLeft="70dp"
                     android:textColor="@color/grey"
@@ -298,7 +300,7 @@
                 </TextView>
 
                 <CheckBox
-                    android:id="@+id/inputBahasaC"
+                    android:id="@+id/editBahasaC"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:text="C++"
@@ -310,40 +312,40 @@
                     tools:ignore="MissingConstraints"></CheckBox>
 
                 <CheckBox
-                    android:id="@+id/inputBahasaJava"
+                    android:id="@+id/editBahasaJava"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:text="Java"
                     android:fontFamily="@font/regular"
                     android:textColor="@color/grey"
                     app:layout_constraintTop_toBottomOf="@+id/textBahasa"
-                    app:layout_constraintLeft_toRightOf="@+id/inputBahasaC"
+                    app:layout_constraintLeft_toRightOf="@+id/editBahasaC"
                     android:layout_marginTop="8dp"
                     android:layout_marginLeft="60dp"
                     android:buttonTint="@color/blue_primary"></CheckBox>
 
                 <CheckBox
-                    android:id="@+id/inputBahasaJavascript"
+                    android:id="@+id/editBahasaJavascript"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:text="JavaScript"
                     android:fontFamily="@font/regular"
                     android:textColor="@color/grey"
-                    app:layout_constraintTop_toBottomOf="@+id/inputBahasaC"
+                    app:layout_constraintTop_toBottomOf="@+id/editBahasaC"
                     android:layout_marginTop="4dp"
                     android:buttonTint="@color/blue_primary"
                     tools:ignore="MissingConstraints"></CheckBox>
 
 
                 <CheckBox
-                    android:id="@+id/inputBahasaPHP"
+                    android:id="@+id/editBahasaPHP"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:text="PHP"
                     android:fontFamily="@font/regular"
                     android:textColor="@color/grey"
-                    app:layout_constraintTop_toBottomOf="@+id/inputBahasaJava"
-                    app:layout_constraintLeft_toRightOf="@+id/inputBahasaC"
+                    app:layout_constraintTop_toBottomOf="@+id/editBahasaJava"
+                    app:layout_constraintLeft_toRightOf="@+id/editBahasaC"
                     android:layout_marginTop="4dp"
                     android:layout_marginLeft="60dp"
                     android:buttonTint="@color/blue_primary"></CheckBox>
@@ -354,11 +356,11 @@
 
         <Button
             android:layout_marginHorizontal="12dp"
-            android:id="@+id/buttonSimpan"
+            android:id="@+id/buttonSimpanPerubahan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
-            android:text="Simpan"
+            android:text="Simpan Perubahan"
             android:backgroundTint="@color/blue_primary"
             app:layout_constraintLeft_toLeftOf="@id/judulApp"
             app:layout_constraintBottom_toBottomOf="parent"></Button>
