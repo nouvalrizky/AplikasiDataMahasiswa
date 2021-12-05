@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -28,7 +29,7 @@ public class FormActivity extends AppCompatActivity {
 	SeekBar inputUKT;
 	CheckBox inputBahasaC, inputBahasaJava, inputBahasaJavascript, inputBahasaPHP;
 	Button buttonSimpan;
-	String namaMhs, alamatMhs, nimMhs, kelaminMhs, uktMhs, bahasaMhs;
+	String namaMhs, alamatMhs, nimMhs, kelaminMhs, uktMhs, bahasaMhs, idMhs;
 
 
 	@Override
@@ -174,16 +175,20 @@ public class FormActivity extends AppCompatActivity {
 	}
 
 	public void saveForm(){
-		Intent intentToDisplay = new Intent(this, DisplayDataActivity.class);
-		intentToDisplay.putExtra("namaMhs", namaMhs);
-		intentToDisplay.putExtra("nimMhs", nimMhs);
-		intentToDisplay.putExtra("alamatMhs", alamatMhs);
-		intentToDisplay.putExtra("kelaminMhs", kelaminMhs);
-		intentToDisplay.putExtra("uktMhs", uktMhs);
-		intentToDisplay.putExtra("bahasaMhs", bahasaMhs);
 
 		MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(this);
 		myDatabaseHelper.tambahMahasiswa(namaMhs, nimMhs, alamatMhs, kelaminMhs, uktMhs, bahasaMhs);
+
+
+		MyDatabaseHelper db = new MyDatabaseHelper(this);
+		Cursor cursor = db.readLastRowID();
+
+		while (cursor.moveToNext()) {
+			idMhs = cursor.getString(0);
+		}
+
+		Intent intentToDisplay = new Intent(this, DisplayDataActivity.class);
+		intentToDisplay.putExtra("idMhs", idMhs);
 
 		startActivity(intentToDisplay);
 		finish();

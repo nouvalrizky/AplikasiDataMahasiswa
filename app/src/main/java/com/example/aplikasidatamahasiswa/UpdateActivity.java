@@ -2,6 +2,7 @@ package com.example.aplikasidatamahasiswa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -143,6 +144,11 @@ public class UpdateActivity extends AppCompatActivity {
 	private void updateDatabaseData(){
 		MyDatabaseHelper db = new MyDatabaseHelper(getApplicationContext());
 		db.updateData(idMhs, namaMhs, nimMhs, alamatMhs, kelaminMhs, uktMhs, bahasaMhs);
+
+		Intent returnIntent = new Intent();
+		setResult(RESULT_OK,returnIntent);
+
+		onBackPressed();
 		finish();
 	}
 }

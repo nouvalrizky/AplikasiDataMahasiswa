@@ -73,6 +73,28 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 		return cursor;
 	}
 
+	Cursor readSpesificData(String id_mhs_selected){
+		String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + "=" + id_mhs_selected;
+		SQLiteDatabase db = this.getReadableDatabase();
+
+		Cursor cursor = null;
+		if(db != null){
+			cursor = db.rawQuery(query, null);
+		}
+		return cursor;
+	}
+
+	Cursor readLastRowID(){
+		String query = "SELECT * FROM " + TABLE_NAME + " ORDER BY " + COLUMN_ID + " DESC LIMIT 1";
+		SQLiteDatabase db = this.getReadableDatabase();
+
+		Cursor cursor = null;
+		if(db != null){
+			cursor = db.rawQuery(query, null);
+		}
+		return cursor;
+	}
+
 	void updateData(String row_id, String namaMhs, String nimMhs, String alamatMhs, String genderMhs, String uktMhs, String bahasaMhs){
 		 SQLiteDatabase db = this.getWritableDatabase();
 		 ContentValues cv = new ContentValues();

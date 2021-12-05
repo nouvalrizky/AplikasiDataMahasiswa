@@ -54,7 +54,6 @@ public class HomeFragment extends Fragment {
 
 	void storeDataInArrays(){
 		Cursor cursor = myDB.readAllData();
-		Log.d("alasan", String.valueOf(cursor.getCount()));
 		if(cursor.getCount()==0){
 			Toast.makeText(getContext(), "Tidak ada data!", Toast.LENGTH_SHORT).show();
 		}else {
