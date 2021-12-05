@@ -55,13 +55,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 			@Override
 			public void onClick(View view) {
 				Intent intentToDisplay = new Intent(view.getContext(), DisplayDataActivity.class);
-				intentToDisplay.putExtra("namaMhs", String.valueOf(nama_mhs.get(position)));
-				intentToDisplay.putExtra("nimMhs", String.valueOf(nim_mhs.get(position)));
-				intentToDisplay.putExtra("alamatMhs", String.valueOf(alamat_mhs.get(position)));
-				intentToDisplay.putExtra("kelaminMhs", String.valueOf(gender_mhs.get(position)));
-				intentToDisplay.putExtra("uktMhs", String.valueOf(ukt_mhs.get(position)));
-				intentToDisplay.putExtra("bahasaMhs", String.valueOf(bahasa_mhs.get(position)));
 				intentToDisplay.putExtra("idMhs", String.valueOf(id_mhs.get(position)));
+				intentToDisplay.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				view.getContext().startActivity(intentToDisplay);
 			}
 		});

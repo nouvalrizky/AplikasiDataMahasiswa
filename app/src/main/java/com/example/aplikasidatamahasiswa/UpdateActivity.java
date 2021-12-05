@@ -3,6 +3,7 @@ package com.example.aplikasidatamahasiswa;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,13 +31,19 @@ public class UpdateActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_update);
 
-		namaMhs = getIntent().getStringExtra("namaMhs");
-		nimMhs = getIntent().getStringExtra("nimMhs");
-		alamatMhs = getIntent().getStringExtra("alamatMhs");
-		kelaminMhs = getIntent().getStringExtra("kelaminMhs");
-		uktMhs = getIntent().getStringExtra("uktMhs");
-		bahasaMhs = getIntent().getStringExtra("bahasaMhs");
 		idMhs = getIntent().getStringExtra("idMhs");
+
+		MyDatabaseHelper db = new MyDatabaseHelper(this);
+		Cursor cursor = db.readSpesificData(idMhs);
+
+		while (cursor.moveToNext()) {
+			namaMhs = cursor.getString(1);
+			nimMhs = cursor.getString(2);
+			alamatMhs = cursor.getString(3);
+			kelaminMhs = cursor.getString(4);
+			uktMhs = cursor.getString(5);
+			bahasaMhs = cursor.getString(6);
+		}
 
 		NamaMahasiswa = findViewById(R.id.editNama);
 		NimMahasiswa = findViewById(R.id.editNIM);
@@ -75,7 +82,7 @@ public class UpdateActivity extends AppCompatActivity {
 
 		editUKT.setProgress(Integer.valueOf(uktMhs)-1);
 
-		if(bahasaMhs.contains("Java")){
+		if(bahasaMhs.contains("Python")){
 			editBahasaJava.setChecked(true);
 		}
 		if(bahasaMhs.contains("PHP")){

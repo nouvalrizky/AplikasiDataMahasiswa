@@ -313,7 +313,7 @@
                     android:id="@+id/inputBahasaJava"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
-                    android:text="Java"
+                    android:text="Python"
                     android:fontFamily="@font/regular"
                     android:textColor="@color/grey"
                     app:layout_constraintTop_toBottomOf="@+id/textBahasa"

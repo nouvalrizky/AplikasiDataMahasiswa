@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.v4.os.IResultReceiver;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -111,5 +112,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 		 }else {
 			 Toast.makeText(context, "Berhasil memperbarui data!", Toast.LENGTH_SHORT).show();
 		 }
+	}
+
+	void deleteSpesificData(String row_id){
+		SQLiteDatabase db = this.getWritableDatabase();
+		long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+		if(result == -1){
+			Toast.makeText(context, "Gagal menghapus data!", Toast.LENGTH_SHORT).show();
+		}else {
+			Toast.makeText(context, "Berhasil menghapus data!", Toast.LENGTH_SHORT).show();
+		}
 	}
 }

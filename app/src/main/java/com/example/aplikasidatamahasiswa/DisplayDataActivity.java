@@ -2,10 +2,12 @@ package com.example.aplikasidatamahasiswa;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -66,14 +68,44 @@ public class DisplayDataActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View view) {
 				Intent intentToUpdate = new Intent(DisplayDataActivity.this, UpdateActivity.class);
-				intentToUpdate.putExtra("namaMhs", String.valueOf(namaMhs));
-				intentToUpdate.putExtra("nimMhs", String.valueOf(nimMhs));
-				intentToUpdate.putExtra("alamatMhs", String.valueOf(alamatMhs));
-				intentToUpdate.putExtra("kelaminMhs", String.valueOf(kelaminMhs));
-				intentToUpdate.putExtra("uktMhs", String.valueOf(uktMhs));
-				intentToUpdate.putExtra("bahasaMhs", String.valueOf(bahasaMhs));
 				intentToUpdate.putExtra("idMhs", String.valueOf(idMhs));
 				startActivityForResult(intentToUpdate, 1);
+			}
+		});
+
+		btnHapusMhs.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+					DisplayDataActivity.this);
+
+				// set title dialog
+				alertDialogBuilder.setTitle("Apakah anda yakin menghapus data?");
+
+				// set pesan dari dialog
+				alertDialogBuilder
+					.setCancelable(false)
+					.setPositiveButton("Hapus",new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,int id) {
+							MyDatabaseHelper db = new MyDatabaseHelper(DisplayDataActivity.this);
+							db.deleteSpesificData(idMhs);
+							Intent intentToHome = new Intent(DisplayDataActivity.this, HomeActivity.class);
+							intentToHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							startActivity(intentToHome);
+							finish();
+						}
+					})
+					.setNegativeButton("Kembali",new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							dialog.cancel();
+						}
+					});
+
+				// membuat alert dialog dari builder
+				AlertDialog alertDialog = alertDialogBuilder.create();
+
+				// menampilkan alert dialog
+				alertDialog.show();
 			}
 		});
 
