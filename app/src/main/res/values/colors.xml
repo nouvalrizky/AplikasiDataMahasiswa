@@ -11,5 +11,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_grey">#DBDBDB</color>
     <color name="blue_primary">#00A15D</color>
+    <color name="yellow_warning">#FFF200</color>
     <color name="main_bg">#F5F7FB</color>
+
 </resources>

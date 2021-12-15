@@ -24,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 
+
 		bottomNavigationView = findViewById(R.id.BottomNavView);
 		bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
@@ -38,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
 				finish();
 			}
 		});
+
 
 	}
 

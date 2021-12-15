@@ -2,8 +2,11 @@ package com.example.aplikasidatamahasiswa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,12 +29,18 @@ public class UpdateActivity extends AppCompatActivity {
 	CheckBox editBahasaC, editBahasaJava, editBahasaJavascript, editBahasaPHP;
 	Button simpanPerubahan;
 
+	Dialog dialogConfirm;
+
+	TextView nama, nim, alamat, kelamin, ukt, bahasa;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_update);
 
 		idMhs = getIntent().getStringExtra("idMhs");
+
+		dialogConfirm = new Dialog(this);
 
 		MyDatabaseHelper db = new MyDatabaseHelper(this);
 		Cursor cursor = db.readSpesificData(idMhs);
@@ -62,7 +71,7 @@ public class UpdateActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View view) {
 				validasiInput();
-				updateDatabaseData();
+				openDialogConfirm();
 			}
 		});
 
@@ -146,6 +155,49 @@ public class UpdateActivity extends AppCompatActivity {
 		}else if(bahasaMhs.isEmpty()){
 			Toast.makeText(getApplicationContext(), "Pilih minimal 1 bahasa pemrograman!", Toast.LENGTH_SHORT).show();
 		}
+	}
+
+	private void openDialogConfirm(){
+
+		dialogConfirm.setContentView(R.layout.custom_dialog);
+		dialogConfirm.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+		Button buttonSimpanDialog, buttonKembaliDialog;
+
+		buttonKembaliDialog = dialogConfirm.findViewById(R.id.buttonKembaliDialog);
+		buttonSimpanDialog = dialogConfirm.findViewById(R.id.buttonSimpanDialog);
+
+		nama = (TextView) dialogConfirm.findViewById(R.id.NamaDialog);
+		nim = (TextView) dialogConfirm.findViewById(R.id.NIMDialog);
+		alamat = (TextView) dialogConfirm.findViewById(R.id.AlamatDialog);
+		kelamin = (TextView) dialogConfirm.findViewById(R.id.KelaminDialog);
+		ukt = (TextView) dialogConfirm.findViewById(R.id.UKTDialog);
+		bahasa = (TextView) dialogConfirm.findViewById(R.id.BahasaDialog);
+
+		nama.setText(namaMhs);
+		nim.setText(nimMhs);
+		alamat.setText(alamatMhs);
+		kelamin.setText(kelaminMhs);
+		ukt.setText(uktMhs);
+		bahasa.setText(bahasaMhs);
+
+
+		buttonSimpanDialog.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				updateDatabaseData();
+				Toast.makeText(getApplicationContext(), "Data telah disimpan!", Toast.LENGTH_SHORT).show();
+			}
+		});
+
+		buttonKembaliDialog.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				dialogConfirm.dismiss();
+			}
+		});
+
+		dialogConfirm.show();
 	}
 
 	private void updateDatabaseData(){

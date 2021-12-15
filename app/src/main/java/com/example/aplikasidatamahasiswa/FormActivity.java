@@ -7,9 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -19,6 +22,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class FormActivity extends AppCompatActivity {
@@ -30,6 +34,9 @@ public class FormActivity extends AppCompatActivity {
 	CheckBox inputBahasaC, inputBahasaJava, inputBahasaJavascript, inputBahasaPHP;
 	Button buttonSimpan;
 	String namaMhs, alamatMhs, nimMhs, kelaminMhs, uktMhs, bahasaMhs, idMhs;
+	Dialog dialogConfirm;
+
+	TextView nama, nim, alamat, kelamin, ukt, bahasa;
 
 
 	@Override
@@ -48,6 +55,8 @@ public class FormActivity extends AppCompatActivity {
 //		ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 //		drawerLayout.addDrawerListener(actionBarDrawerToggle);
 //		actionBarDrawerToggle.syncState();
+
+		dialogConfirm = new Dialog(this);
 
 		inputNama = findViewById(R.id.inputNama);
 		inputAlamat = findViewById(R.id.inputAlamat);
@@ -118,7 +127,7 @@ public class FormActivity extends AppCompatActivity {
 		}else if(bahasaMhs.isEmpty()){
 			Toast.makeText(getApplicationContext(), "Pilih minimal 1 bahasa pemrograman!", Toast.LENGTH_SHORT).show();
 		}else{
-			simpanDataMahasiswa();
+			openDialogConfirm();
 		}
 	}
 
@@ -199,5 +208,49 @@ public class FormActivity extends AppCompatActivity {
 			super.onBackPressed();
 			Intent intentToHome = new Intent(FormActivity.this, HomeActivity.class);
 			startActivity(intentToHome);
+	}
+
+	private void openDialogConfirm(){
+
+		dialogConfirm.setContentView(R.layout.custom_dialog);
+		dialogConfirm.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+		Button buttonSimpanDialog, buttonKembaliDialog;
+
+		buttonKembaliDialog = dialogConfirm.findViewById(R.id.buttonKembaliDialog);
+		buttonSimpanDialog = dialogConfirm.findViewById(R.id.buttonSimpanDialog);
+
+		nama = (TextView) dialogConfirm.findViewById(R.id.NamaDialog);
+		nim = (TextView) dialogConfirm.findViewById(R.id.NIMDialog);
+		alamat = (TextView) dialogConfirm.findViewById(R.id.AlamatDialog);
+		kelamin = (TextView) dialogConfirm.findViewById(R.id.KelaminDialog);
+		ukt = (TextView) dialogConfirm.findViewById(R.id.UKTDialog);
+		bahasa = (TextView) dialogConfirm.findViewById(R.id.BahasaDialog);
+
+		nama.setText(namaMhs);
+		nim.setText(nimMhs);
+		alamat.setText(alamatMhs);
+		kelamin.setText(kelaminMhs);
+		ukt.setText(uktMhs);
+		bahasa.setText(bahasaMhs);
+
+
+		buttonSimpanDialog.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				resetForm();
+				saveForm();
+				Toast.makeText(getApplicationContext(), "Data telah disimpan!", Toast.LENGTH_SHORT).show();
+			}
+		});
+
+		buttonKembaliDialog.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				dialogConfirm.dismiss();
+			}
+		});
+
+		dialogConfirm.show();
 	}
 }

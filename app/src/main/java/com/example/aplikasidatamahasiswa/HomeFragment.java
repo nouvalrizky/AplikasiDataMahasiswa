@@ -24,7 +24,7 @@ public class HomeFragment extends Fragment {
 	private MyDatabaseHelper myDB;
 	ArrayList<String> id_mhs, nama_mhs, nim_mhs, alamat_mhs, gender_mhs, ukt_mhs, bahasa_mhs;
 	RecyclerAdapter recyclerAdapter;
-	RecyclerView.LayoutManager layoutManager;
+	LinearLayoutManager layoutManager;
 
 	@Nullable
 	@Override
@@ -44,9 +44,11 @@ public class HomeFragment extends Fragment {
 		storeDataInArrays();
 
 		recyclerAdapter = new RecyclerAdapter(getContext(), id_mhs, nama_mhs, nim_mhs, alamat_mhs, gender_mhs, ukt_mhs, bahasa_mhs);
-
+		layoutManager = new LinearLayoutManager(view.getContext());
+		layoutManager.setReverseLayout(true);
+		layoutManager.setStackFromEnd(true);
 		recyclerView = view.findViewById(R.id.recycler_mhs);
-		recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+		recyclerView.setLayoutManager(layoutManager);
 		recyclerView.setAdapter(recyclerAdapter);
 
 		return view;

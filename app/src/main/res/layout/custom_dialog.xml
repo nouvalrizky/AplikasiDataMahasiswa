@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:padding="15dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iconWarning"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:src="@drawable/ic_baseline_warning_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/blue_primary" />
+
+            <TextView
+                android:id="@+id/judulWarning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apakah data sudah benar?"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/bold"
+                android:textColor="@color/dark_grey"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iconWarning" />
+
+            <View
+                android:id="@+id/lineWarning"
+                android:layout_width="300dp"
+                android:layout_height="0.6dp"
+                android:layout_marginTop="12dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/judulWarning" />
+
+            <TextView
+                android:id="@+id/judulNamaDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Mahasiswa"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/medium"
+                android:textColor="@color/dark_grey"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lineWarning" />
+
+            <TextView
+                android:id="@+id/NamaDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nouval Rizky AKbar Juliansyah"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/semibold"
+                android:textColor="@color/dark_grey"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/judulNamaDialog" />
+
+            <TextView
+                android:id="@+id/judulNIMDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NIM"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/medium"
+                android:textColor="@color/dark_grey"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/NamaDialog" />
+
+            <TextView
+                android:id="@+id/NIMDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1905551065"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/semibold"
+                android:textColor="@color/dark_grey"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/judulNIMDialog" />
+
+            <TextView
+                android:id="@+id/judulAlamatDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/medium"
+                android:textColor="@color/dark_grey"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/NIMDialog" />
+
+            <TextView
+                android:id="@+id/AlamatDialog"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:text="Jalan Diponegoro Gang 8C Kavling 4 No. 13 Denpasar Selatan"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/semibold"
+                android:textColor="@color/dark_grey"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/judulAlamatDialog" />
+
+            <TextView
+                android:id="@+id/judulKelaminDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/medium"
+                android:textColor="@color/dark_grey"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/AlamatDialog" />
+
+            <TextView
+                android:id="@+id/KelaminDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Laki-laki"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/semibold"
+                android:textColor="@color/dark_grey"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/judulKelaminDialog" />
+
+            <TextView
+                android:id="@+id/judulUKTDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tingkat UKT"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/medium"
+                android:textColor="@color/dark_grey"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/KelaminDialog" />
+
+            <TextView
+                android:id="@+id/UKTDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/semibold"
+                android:textColor="@color/dark_grey"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/judulUKTDialog" />
+
+            <TextView
+                android:id="@+id/judulBahasaDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bahasa Pemrograman"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/medium"
+                android:textColor="@color/dark_grey"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/UKTDialog" />
+
+            <TextView
+                android:id="@+id/BahasaDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/semibold"
+                android:text="Java, PHP"
+                android:textColor="@color/dark_grey"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/judulBahasaDialog" />
+
+            <Button
+                android:id="@+id/buttonKembaliDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/dark_grey"
+                android:text="Kembali"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/BahasaDialog" />
+
+            <Button
+                android:id="@+id/buttonSimpanDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingHorizontal="40dp"
+                android:text="Simpan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/BahasaDialog" />
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
