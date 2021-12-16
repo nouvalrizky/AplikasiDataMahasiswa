@@ -173,6 +173,8 @@ public class DisplayDataActivity extends AppCompatActivity {
 		@Override
 		public void onBackPressed () {
 			Intent intentToForm = new Intent(DisplayDataActivity.this, HomeActivity.class);
+			intentToForm.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intentToForm);
+			finish();
 		}
 	}

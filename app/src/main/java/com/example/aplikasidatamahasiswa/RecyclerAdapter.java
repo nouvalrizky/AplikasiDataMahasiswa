@@ -18,6 +18,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
 	Context context;
 	ArrayList id_mhs, nama_mhs, nim_mhs, alamat_mhs, gender_mhs, ukt_mhs, bahasa_mhs;
+	int stateShowMore = 0;
 
 
 	RecyclerAdapter(Context context,
@@ -51,6 +52,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 		holder.nama_mhs_txt.setText(String.valueOf(nama_mhs.get(position)));
 		holder.nim_mhs_txt.setText(String.valueOf(nim_mhs.get(position)));
 		holder.gender_mhs_txt.setText(String.valueOf(gender_mhs.get(position)));
+
+
+		if (position==getItemCount()-1){
+			holder.showMoreButton.setVisibility(View.VISIBLE);
+		}else {
+			holder.showMoreButton.setVisibility(View.GONE);
+		}
+
+		if (getItemCount()==id_mhs.size() && position==getItemCount()-1){
+			holder.showMoreButton.setVisibility(View.GONE);
+		}
+
 		holder.cardViewMhs.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -60,22 +73,34 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 				view.getContext().startActivity(intentToDisplay);
 			}
 		});
+		holder.showMoreButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				stateShowMore=1;
+				notifyDataSetChanged();
+			}
+		});
 	}
 
 	@Override
 	public int getItemCount() {
-		return id_mhs.size();
+		if (stateShowMore==1){
+			return id_mhs.size();
+		}
+		return 5;
 	}
 
 	public class MyViewHolder extends RecyclerView.ViewHolder {
 		TextView id_mhs_txt, nama_mhs_txt, nim_mhs_txt, gender_mhs_txt;
 		CardView cardViewMhs;
+		TextView showMoreButton;
 		public MyViewHolder(@NonNull View itemView) {
 			super(itemView);
 			nama_mhs_txt = itemView.findViewById(R.id.namaMahasiswaCard);
 			nim_mhs_txt = itemView.findViewById(R.id.nimMahasiswaCard);
 			gender_mhs_txt = itemView.findViewById(R.id.genderMahasiswaCard);
 			cardViewMhs = itemView.findViewById(R.id.cardMhs);
+			showMoreButton = itemView.findViewById(R.id.showMoreButton);
 		}
 	}
 

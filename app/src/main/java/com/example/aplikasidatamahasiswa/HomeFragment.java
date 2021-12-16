@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class HomeFragment extends Fragment {
 
@@ -41,12 +43,19 @@ public class HomeFragment extends Fragment {
 		ukt_mhs = new ArrayList<>();
 		bahasa_mhs = new ArrayList<>();
 
+
 		storeDataInArrays();
+
+		Collections.reverse(id_mhs);
+		Collections.reverse(nama_mhs);
+		Collections.reverse(nim_mhs);
+		Collections.reverse(alamat_mhs);
+		Collections.reverse(gender_mhs);
+		Collections.reverse(ukt_mhs);
+		Collections.reverse(bahasa_mhs);
 
 		recyclerAdapter = new RecyclerAdapter(getContext(), id_mhs, nama_mhs, nim_mhs, alamat_mhs, gender_mhs, ukt_mhs, bahasa_mhs);
 		layoutManager = new LinearLayoutManager(view.getContext());
-		layoutManager.setReverseLayout(true);
-		layoutManager.setStackFromEnd(true);
 		recyclerView = view.findViewById(R.id.recycler_mhs);
 		recyclerView.setLayoutManager(layoutManager);
 		recyclerView.setAdapter(recyclerAdapter);

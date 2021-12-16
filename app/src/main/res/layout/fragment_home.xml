@@ -41,6 +41,8 @@
         android:layout_width="match_parent"
         android:layout_marginTop="130dp"
         android:paddingHorizontal="14dp"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layoutAnimation="@anim/layout_animation"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
