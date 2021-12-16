@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -37,6 +38,8 @@ public class FormActivity extends AppCompatActivity {
 	Dialog dialogConfirm;
 
 	TextView nama, nim, alamat, kelamin, ukt, bahasa;
+
+	ImageView backButtonToolbar, homeButtonToolbar;
 
 
 	@Override
@@ -69,6 +72,8 @@ public class FormActivity extends AppCompatActivity {
 		inputBahasaJavascript = findViewById(R.id.inputBahasaJavascript);
 		inputBahasaPHP = findViewById(R.id.inputBahasaPHP);
 		buttonSimpan = findViewById(R.id.buttonSimpan);
+		backButtonToolbar = findViewById(R.id.backButtonToolbar);
+		homeButtonToolbar = findViewById(R.id.homeButtonToolbar);
 
 		buttonSimpan.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -76,6 +81,25 @@ public class FormActivity extends AppCompatActivity {
 				validasiInput();
 			}
 		});
+
+		backButtonToolbar.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				onBackPressed();
+				finish();
+			}
+		});
+
+		homeButtonToolbar.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent backToHome;
+				backToHome = new Intent(FormActivity.this, HomeActivity.class);
+				startActivity(backToHome);
+				finish();
+			}
+		});
+
 	}
 
 	private void validasiInput(){

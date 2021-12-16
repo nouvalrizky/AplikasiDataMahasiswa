@@ -13,6 +13,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,8 @@ public class DisplayDataActivity extends AppCompatActivity {
 		String namaMhs, nimMhs, alamatMhs, kelaminMhs, uktMhs, bahasaMhs, idMhs;
 		TextView NamaMahasiswa, NimMahasiswa, AlamatMahasiswa, JenisKelaminMahasiswa, UKTMahasiswa, BahasaMahasiswa;
 		Button btnEditMhs, btnHapusMhs;
+
+	ImageView backButtonToolbar, homeButtonToolbar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,9 @@ public class DisplayDataActivity extends AppCompatActivity {
 		BahasaMahasiswa = findViewById(R.id.BahasaMahasiswa);
 		btnEditMhs = findViewById(R.id.tombolUpdateMhs);
 		btnHapusMhs = findViewById(R.id.tombolDeleteMhs);
+
+		backButtonToolbar = findViewById(R.id.backButtonToolbar);
+		homeButtonToolbar = findViewById(R.id.homeButtonToolbar);
 
 		NamaMahasiswa.setText(namaMhs);
 		NimMahasiswa.setText(nimMhs);
@@ -106,6 +112,24 @@ public class DisplayDataActivity extends AppCompatActivity {
 
 				// menampilkan alert dialog
 				alertDialog.show();
+			}
+		});
+
+		backButtonToolbar.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				onBackPressed();
+				finish();
+			}
+		});
+
+		homeButtonToolbar.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent backToHome;
+				backToHome = new Intent(DisplayDataActivity.this, HomeActivity.class);
+				startActivity(backToHome);
+				finish();
 			}
 		});
 

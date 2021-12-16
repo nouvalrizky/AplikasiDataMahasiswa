@@ -27,6 +27,7 @@
             android:elevation="4dp">
 
             <ImageView
+                android:id="@+id/backButtonToolbar"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@drawable/ic_back"
@@ -35,6 +36,7 @@
                 app:tint="@color/white" />
 
             <ImageView
+                android:id="@+id/homeButtonToolbar"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:src="@drawable/ic_home"

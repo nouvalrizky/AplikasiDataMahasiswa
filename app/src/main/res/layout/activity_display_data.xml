@@ -17,10 +17,21 @@
         android:elevation="4dp">
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_baseline_notifications_none_24"
+            android:id="@+id/backButtonToolbar"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_back"
+            android:layout_gravity="start"
+            android:layout_marginEnd="15dp"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/homeButtonToolbar"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_home"
             android:layout_gravity="end"
+            app:tint="@color/white"
             android:layout_marginEnd="15dp"/>
 
 
