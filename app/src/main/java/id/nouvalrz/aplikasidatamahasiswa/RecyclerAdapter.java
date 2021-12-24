@@ -86,10 +86,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
 	@Override
 	public int getItemCount() {
-		if (stateShowMore==1){
+		if (id_mhs.size()<=5){
 			return id_mhs.size();
+		}else if (stateShowMore==1){
+			return id_mhs.size();
+		}else{
+			return 5;
 		}
-		return 5;
 	}
 
 	public class MyViewHolder extends RecyclerView.ViewHolder {
