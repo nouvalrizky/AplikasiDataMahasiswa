@@ -1,4 +1,4 @@
-package com.example.aplikasidatamahasiswa;
+package id.nouvalrz.aplikasidatamahasiswa;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,9 +10,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import id.nouvalrz.aplikasidatamahasiswa.R;
 
 public class HomeActivity extends AppCompatActivity {
 

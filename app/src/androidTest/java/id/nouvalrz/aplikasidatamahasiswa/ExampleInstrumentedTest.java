@@ -1,4 +1,4 @@
-package com.example.aplikasidatamahasiswa;
+package id.nouvalrz.aplikasidatamahasiswa;
 
 import android.content.Context;
 

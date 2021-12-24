@@ -1,8 +1,10 @@
-package com.example.aplikasidatamahasiswa;
+package id.nouvalrz.aplikasidatamahasiswa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import id.nouvalrz.aplikasidatamahasiswa.R;
 
 public class SplashScreen extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.aplikasidatamahasiswa;
+package id.nouvalrz.aplikasidatamahasiswa;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import id.nouvalrz.aplikasidatamahasiswa.R;
 
 import java.util.ArrayList;
 

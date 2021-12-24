@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1F5FA"
-    tools:context=".DisplayDataActivity">
+    tools:context="id.nouvalrz.aplikasidatamahasiswa.DisplayDataActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"

@@ -1,11 +1,10 @@
-package com.example.aplikasidatamahasiswa;
+package id.nouvalrz.aplikasidatamahasiswa;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.v4.os.IResultReceiver;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;

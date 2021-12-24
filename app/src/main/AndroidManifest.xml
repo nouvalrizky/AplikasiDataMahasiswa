@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.aplikasidatamahasiswa">
+    package="id.nouvalrz.aplikasidatamahasiswa">
 
     <application
         android:allowBackup="true"
@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiDataMahasiswa">
         <activity
-            android:name=".UpdateActivity"
+            android:name="id.nouvalrz.aplikasidatamahasiswa.UpdateActivity"
             android:exported="true" />
         <activity
-            android:name=".HomeActivity"
+            android:name="id.nouvalrz.aplikasidatamahasiswa.HomeActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true">
             <intent-filter>
@@ -23,13 +23,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DisplayDataActivity"
+            android:name="id.nouvalrz.aplikasidatamahasiswa.DisplayDataActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashScreen"
+            android:name="id.nouvalrz.aplikasidatamahasiswa.SplashScreen"
             android:exported="true" />
         <activity
-            android:name=".FormActivity"
+            android:name="id.nouvalrz.aplikasidatamahasiswa.FormActivity"
             android:exported="true">
 
             <!-- <intent-filter> -->
